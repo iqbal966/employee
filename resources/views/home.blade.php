@@ -56,7 +56,7 @@
                                  type="button">Punch in</button>
                         </div>
                         <div class="col-md-4">
-                                <button class="btn btn-info btn-xs" type="button">Punch Out</button>
+                                <button class="btn btn-info btn-xs" type="button">Punch Okhiojojoojojut</button>
                         </div>
                        
             </div>
