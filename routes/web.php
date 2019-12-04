@@ -19,6 +19,8 @@ Route::get('/timetable', 'HomeController@timetable');
 Route::get('/add', 'PostController@add')->middleware('auth');
 Route::post('/add', 'PostController@store');
 
+Route::post('/onlineleave','leavesController@store');
+
 Auth::routes();
 
 

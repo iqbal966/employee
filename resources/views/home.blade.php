@@ -9,7 +9,7 @@
 
                 {{-- ////////////////////////////////////////////////////////////// --}}
                 <div class="m-3">
-                        <form method="POST" action="">
+                        <form method="" action="" autocomplete="off">
                                 @csrf
 
                                 <div class="form-group row">
@@ -30,7 +30,7 @@
                                     <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
                         
                                     <div class="col-md-6">
-                                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                    <input id="name" type="text" value="{{Auth::user()->name }}" disabled type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                         
                                         @error('name')
                                             <span class="invalid-feedback" role="alert">
@@ -44,7 +44,7 @@
                                         <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('ID') }}</label>
                             
                                         <div class="col-md-6">
-                                            <input id="id" type="text" class="form-control @error('id') is-invalid @enderror" name="id" value="{{ old('id') }}" required autocomplete="id" autofocus>
+                                            <input id="id" type="text" value="{{Auth::user()->staff_id }}" disabled type="text" class="form-control @error('id') is-invalid @enderror" name="id" value="{{ old('id') }}" required autocomplete="id" autofocus>
                             
                                             @error('id')
                                                 <span class="invalid-feedback" role="alert">
@@ -54,7 +54,7 @@
                                         </div>
                                     </div>
 
-                                <div class="form-group row">
+                                {{-- <div class="form-group row">
                                     <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
                         
                                     <div class="col-md-6">
@@ -66,7 +66,7 @@
                                             </span>
                                         @enderror
                                     </div>
-                                </div>
+                                </div> --}}
                         
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6 offset-md-4">
@@ -74,16 +74,21 @@
                                         <button type="submit" onclick="checkin()" class="btn btn-info mr-3 text-white">
                                             {{ __('Punch In') }}
                                         </button>
-                                        <button type="submit" class="btn btn-info text-white">
+                                        <button type="submit" onclick="checkout()" class="btn btn-info text-white">
                                                 {{ __('Punch Out') }}
                                         </button>
                                     </div>
                                 </div>
                             </form>
-                                <div class="text-center m-3">
-                                        <a class= "text-white btn btn-danger" href="/onlineleave">Leave Application</a> 
-                                </div>
 
+                                <div class="text-center m-3">
+                                    <a class= "text-white btn btn-danger" href="/onlineleave">Leave Application</a> 
+
+                                    @auth
+                                    <a class= "text-white btn btn-success" href="/onlineleave">Leave Approval</a> 
+                                    @endauth
+                                
+                                </div>
                 </div>
 
                 {{-- /////////////////////////////////////// --}}   
@@ -93,8 +98,12 @@
 </div>
 <script>
         function checkin(){
-            alert("You are punch in :)");
+            alert("You are punch in :) It is time to start working!");
         }
-        </script>
+
+        function checkout(){
+            alert("It is time to go back and rest!");
+        }
+</script>
         
 @endsection
