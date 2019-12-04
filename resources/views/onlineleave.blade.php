@@ -45,7 +45,7 @@
                 <div class="col-12">
                     <div class="form-group pmd-textfield pmd-textfield-floating-label">
                         <label>Reason</label>
-                        <textarea id="reason" type="text" class="form-control @error('reason') is-invalid @enderror" name="reason" value="{{ old('reason') }}" required autocomplete="reason" autofocus></textarea>
+                        <input id="reason" type="text" class="form-control @error('reason') is-invalid @enderror" name="reason" value="{{ old('reason') }}" required autocomplete="reason" autofocus>
                     </div>
                     @error('reason')
                     <span class="invalid-feedback" role="alert">
@@ -73,7 +73,7 @@
 <script>
     function apply()
         {
-            var empt = document.forms["application_leave_form"]["reason" , "leave_type", "start_date" , "end_date"].value;
+            var empt = document.forms["application_leave_form"]["leave_type", "start_date" , "end_date", "reason"].value;
             if (empt == ""){
                 alert("Please complete the leave application form!");
             return false;
