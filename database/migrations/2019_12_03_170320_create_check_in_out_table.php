@@ -13,7 +13,7 @@ class CreateCheckInOutTable extends Migration
      */
     public function up()
     {
-        Schema::create('check_in_out', function (Blueprint $table) {
+        Schema::create('check_in_outs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('staff_id');
             $table->dateTime('check_in_out');

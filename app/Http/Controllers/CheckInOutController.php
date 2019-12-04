@@ -11,9 +11,10 @@ class CheckInOutController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'check_in_out' => 'timestamp',
+            'check_in_out' => 'required',
         ]);
 
+        // dd($data);
 
         $CheckInOut = new CheckInOut();
 
@@ -21,6 +22,8 @@ class CheckInOutController extends Controller
 
         // dd($leaves);
         $CheckInOut->user()->associate(auth()->user());
+
+        // dd($CheckInOut);
         $CheckInOut->save();
 
 

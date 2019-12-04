@@ -15,6 +15,9 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/onlineleave', 'HomeController@onlineleave');
 Route::get('/timetable', 'HomeController@timetable');
 
+Route::post('/checkinout','CheckInOutController@store');
+
+
 // Route::get('/', 'PostController@index');
 Route::get('/add', 'PostController@add')->middleware('auth');
 Route::post('/add', 'PostController@store');

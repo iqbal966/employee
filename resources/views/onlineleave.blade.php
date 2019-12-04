@@ -1,7 +1,7 @@
 @extends ('layouts.app')
 
 @section('content')
-<form method="POST" action="/onlineleave">
+<form method="POST" action="/onlineleave" name="application_leave_form">
     @csrf
         <div class="card-body">
             <div class="row">
@@ -21,20 +21,37 @@
                 <div class="col-md-6">
                     <div class="form-group pmd-textfield pmd-textfield-floating-label">
                         <label class="control-label" for="datepickerstart">Start Date</label>
-                        <input type="date" class="form-control" id="datepickerstart" name="start_date">
+                        <input id="start_date" type="date" class="form-control @error('start_date') is-invalid @enderror" name="start_date" value="{{ old('start_date') }}" required autocomplete="start_date" autofocus>
+                            
+                        @error('start_date')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group pmd-textfield pmd-textfield-floating-label">
-                        <label class="control-label" for="datepickerend">End Date</label>
-                        <input type="date" class="form-control" id="datepickerend" name="end_date">
+                    <label class="control-label" for="datepickerend">End Date</label>
+                     <input id="end_date" type="date" class="form-control @error('end_date') is-invalid @enderror" name="end_date" value="{{ old('end_date') }}" required autocomplete="end_date" autofocus>
+                            
+                        @error('end_date')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="form-group pmd-textfield pmd-textfield-floating-label">
                         <label>Reason</label>
-                        <textarea class="form-control" id="reason" name="reason"></textarea>
+                        <textarea id="reason" type="text" class="form-control @error('reason') is-invalid @enderror" name="reason" value="{{ old('reason') }}" required autocomplete="reason" autofocus></textarea>
                     </div>
+                    @error('reason')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror  
                 </div>
                 {{-- <div class="col-12">
                     <div class="custom-control custom-checkbox pmd-checkbox">
@@ -54,7 +71,16 @@
     @endsection
 
 <script>
-    function apply(){
-        alert("Your leave application have been send!");
-    }
+    function apply()
+        {
+            var empt = document.forms["application_leave_form"]["reason" , "leave_type", "start_date" , "end_date"].value;
+            if (empt == ""){
+                alert("Please complete the leave application form!");
+            return false;
+            }
+            else {
+                alert('Your leave application have been send!');
+            return true; 
+            }
+        }
 </script>
