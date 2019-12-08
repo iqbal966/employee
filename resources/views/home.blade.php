@@ -1,11 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
+    
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Attendance</div>
+                <div class="w3-sidebar w3-bar-block" style="width:25%">
+                        <a href="#" class="w3-bar-item w3-button">Timetable</a>
+                        
+                      </div>
+                      <div class="w3-sidebar w3-bar-block" style="width:25%">
+                        <a href="#" class="w3-bar-item w3-button">Online Leave</a>
+                      </div>
 
                 <div class="row text-center mt-3"> 
                 <div class="col-md-6"> 
@@ -56,7 +65,7 @@
                                  type="button">Punch in</button>
                         </div>
                         <div class="col-md-4">
-                                <button class="btn btn-info btn-xs" type="button">Punch Okhiojojoojojut</button>
+                                <button class="btn btn-info btn-xs" type="button">Punch Out</button>
                         </div>
                        
             </div>

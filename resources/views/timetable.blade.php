@@ -2,7 +2,14 @@
 
 @section('content')
 
+
 <table class="table table-striped table-dark">
+    <div class="w3-sidebar w3-bar-block" style="width:25%">
+        <a href="#" class="w3-bar-item w3-button">Week 1</a>
+      <div class="w3-sidebar w3-bar-block" style="width:25%">
+        <a href="#" class="w3-bar-item w3-button">Week 2</a>
+        
+      </div>
         <thead>
           <tr>
             <th scope="col">Name</th>
@@ -14,46 +21,46 @@
         <tbody>
           <tr>
             <th scope="row">MONDAY</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr>
             <th scope="row">TUESDAY</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
           <tr>
             <th scope="row">WEDNESDAY</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
 
           <tr>
                 <th scope="row">THURSDAY</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
+                <td></td>
+                <td></td>
+                <td></td>
           </tr>
           <tr>
                 <th scope="row">FRIDAY</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
+                <td></td>
+                <td></td>
+                <td></td>
           </tr>
           <tr>
                 <th scope="row">SATURDAY</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
+                <td></td>
+                <td></td>
+                <td></td>
           </tr>
           <tr>
                 <th scope="row">SUNDAY</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
+                <td></td>
+                <td></td>
+                <td></td>
           </tr>
         </tbody>
       </table>

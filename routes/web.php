@@ -14,6 +14,7 @@
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/onlineleave', 'HomeController@onlineleave');
 Route::get('/timetable', 'HomeController@timetable');
+Route::get('/admin', 'AdminController@admin');
 
 // Route::get('/', 'PostController@index');
 Route::get('/add', 'PostController@add')->middleware('auth');
