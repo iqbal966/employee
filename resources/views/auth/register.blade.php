@@ -8,6 +8,11 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
+
+                        {{-- <div class="text-center alert alert-danger">
+                                {{ $errors->first() }}
+                        </div> --}}
+        
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
@@ -31,7 +36,7 @@
                             <div class="col-md-6">
                                 <input id="name" type="text" maxlength="4" class="form-control @error('name') is-invalid @enderror" name="staff_id" value="{{ old('staff_id') }}" required autocomplete="staff_id" autofocus>
 
-                                @error('name')
+                                @error('staff_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -45,7 +50,7 @@
                                 <div class="col-md-6">
                                     <input id="name" type="text" maxlength="10" class="form-control @error('name') is-invalid @enderror" name="phone_no" value="{{ old('phone_no') }}" required autocomplete="phone_no" autofocus>
     
-                                    @error('name')
+                                    @error('phone_no')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -88,11 +93,20 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
-
+                        <div class="form-group row">
+                            <div class="col-md-6 offset-md-4 mb-2">
+                                <div class="g-recaptcha @error('g-recaptcha-response') is-invalid @enderror" data-sitekey="{{env('CAPTCHA_KEY')}}"></div>
+                            </div>
+                                @if($errors->has('g-recaptcha-response'))
+                                    <div class="invalid-feedback col-md-6 offset-md-4 mb-2" style="display:block">
+                                        <strong>{{$errors->first('g-recaptcha-response')}}</strong>
+                                    </div>
+                                @endif
+                        </div>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button class="btn btn-danger">
-                                    <a class="text-white" href="/home">{{ __('Back') }}</a>
+                                    <a class="text-white" href="/">{{ __('Back') }}</a>
                                 </button>
                                 <button type="submit" class="btn btn-success">
                                     {{ __('Register new employee') }}
@@ -100,6 +114,9 @@
                             </div>
                         </div>
                     </form>
+
+
+                    
                 </div>
             </div>
         </div>

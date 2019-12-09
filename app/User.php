@@ -41,4 +41,14 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Post', 'user_id');
     }
+
+    public function leaves()
+    {
+        return $this->hasMany('App\Leave', 'staff_id');
+    }
+
+    public function checkinout()
+    {
+        return $this->hasMany('App\CheckInOut', 'staff_id');
+    }
 }
